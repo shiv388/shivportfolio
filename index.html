@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shivpoojan Prajapati | Full Stack Developer</title>
+    <meta name="description" content="Shivpoojan Prajapati | Full Stack Developer Portfolio" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+    <style>
+        :root {
+            --theme-color: #009999;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #ffffff;
+        }
+
+        .theme-text {
+            color: var(--theme-color);
+        }
+
+        .theme-bg {
+            background-color: var(--theme-color);
+            color: white;
+        }
+
+        .btn.theme-bg:hover {
+            background-color: #007777;
+            color: white;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+
+        .badge {
+            background-color: var(--theme-color);
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .project-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icons a {
+            font-size: 20px;
+            color: white;
+            background-color: var(--theme-color);
+            border-radius: 50%;
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: #007777;
+        }
+
+        footer {
+            background-color: var(--theme-color);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .nav-link {
+            color: #333;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--theme-color) !important;
+        }
+
+        .hero-section {
+            position: relative;
+            padding: 100px 0;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .hero-profile-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            z-index: 2;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blob-left,
+        .blob-right {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+
+            .hero-profile-img {
+                margin-top: 40px;
+            }
+
+            .hero-section .row {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .blob-left {
+            background-color: #93e3e9;
+            left: -80px;
+            bottom: -50px;
+        }
+
+        .blob-right {
+            background-color: #a0eea7;
+            right: -60px;
+            top: -60px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .social-icons {
+                justify-content: flex-start;
+            }
+        }
+
+        /* --- Responsive Nav Sliding from Side (Updated Code) --- */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 75%;
+                height: 100vh;
+                background-color: #fff;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                z-index: 1050;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-item {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .nav-link {
+                padding: 10px 15px;
+            }
+
+            .navbar-toggler {
+                z-index: 1051;
+            }
+
+            .mobile-nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1040;
+                display: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .mobile-nav-overlay.show {
+                display: block;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold theme-text" href="#">Shivpoojan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="Shivpoojan_Resume.pdf" download class="btn btn-sm theme-bg">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr class="my-0">
+
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center text-center text-md-start">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h1 class="display-4 theme-text">Shivpoojan Prajapati</h1>
+                    <h3>Full Stack Developer</h3>
+                    <p class="lead">I build scalable, clean and high-performance web applications.</p>
+                    <a href="Shivpoojan_Resume.pdf" class="btn theme-bg mt-3" download>Download Resume</a>
+                </div>
+
+                <div class="col-md-6 position-relative d-flex justify-content-center mt-4 mt-md-0" data-aos="fade-left">
+                    <div class="blob-left d-none d-md-block"></div>
+                    <div class="blob-right d-none d-md-block"></div>
+                    <img src="IMG_20240123_223203.jpg" alt="Shivpoojan Prajapati" class="hero-profile-img" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section id="about" class="section-padding bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="theme-text">About Me</h2>
+            <p>I am a passionate Full Stack Developer with experience in Angular, ASP.NET Core Web API, SQL Server, and clean code practices. I enjoy building scalable systems and intuitive UIs.</p>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill theme-text me-2"></i>Clean architecture and performance optimization</li>
+                <li><i class="bi bi-check-circle-fill theme-text me-2"></i>Strong knowledge of frontend-backend integration</li>
+                <li><i class="bi bi-check-circle-fill theme-text me-2"></i>Experience with RESTful APIs and SQL-based systems</li>
+            </ul>
+        </div>
+    </section>
+    <hr>
+
+    <section id="skills" class="section-padding">
+        <div class="container" data-aos="zoom-in">
+            <h2 class="theme-text mb-3">Skills</h2>
+            <div class="d-flex flex-wrap">
+                <span class="badge text-white">Angular</span>
+                <span class="badge text-white">TypeScript</span>
+                <span class="badge text-white">JavaScript</span>
+                <span class="badge text-white">C#</span>
+                <span class="badge text-white">ASP.NET Core</span>
+                <span class="badge text-white">SQL Server</span>
+                <span class="badge text-white">HTML</span>
+                <span class="badge text-white">CSS</span>
+                <span class="badge text-white">Bootstrap</span>
+                <span class="badge text-white">Git</span>
+                <span class="badge text-white">Postman</span>
+                <span class="badge text-white">Swagger</span>
+                <span class="badge text-white">Visual Studio</span>
+                <span class="badge text-white">VS Code</span>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section id="projects" class="section-padding bg-light">
+        <div class="container" data-aos="fade-up">
+            <h2 class="theme-text">Projects</h2>
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <div class="card project-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">HRMS Module</h5>
+                            <p>Human Resource Management System with leave, payroll, and attendance features for employee lifecycle management.</p>
+                            <p class="small text-muted"><strong>Tech:</strong> Angular, ASP.NET Core Web API, SQL Server</p>
+                            <a href="hrms.png" class="btn btn-sm theme-bg mt-auto" target="_blank">View Screenshot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card project-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">CRM System</h5>
+                            <p>Client Relationship Management software to handle client details, follow-ups, lead tracking, and communication history.</p>
+                            <p class="small text-muted"><strong>Tech:</strong> Angular, ASP.NET Core Web API, SQL Server</p>
+                            <a href="Crmdashboard.png" class="btn btn-sm theme-bg mt-auto" target="_blank">View Screenshot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card project-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Coolie Project – TMS</h5>
+                            <p>Transport Management System for assigning coolies and managing logistics operations using vendor location mapping and trip tracking.</p>
+                            <p class="small text-muted"><strong>Tech:</strong> Angular, ASP.NET Core Web API, SQL Server, Google Maps API</p>
+                            <a href="coolie.png" class="btn btn-sm theme-bg mt-auto" target="_blank">View Screenshot</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section id="experience" class="section-padding">
+        <div class="container" data-aos="fade-right">
+            <h2 class="theme-text">Experience</h2>
+            <p><strong>Empower Logics</strong> (2024 – Present)</p>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-gear-fill theme-text me-2"></i>Working on <strong>HRMS Module</strong> including Attendance, Payroll, and Employee Management</li>
+                <li><i class="bi bi-gear-fill theme-text me-2"></i>Developed features for <strong>CRM</strong> (Client Relationship Management) systems</li>
+                <li><i class="bi bi-gear-fill theme-text me-2"></i>Contributed to <strong>TMS</strong> (Transport Management System) with real-time tracking and order automation</li>
+            </ul>
+        </div>
+    </section>
+    <hr>
+
+    <section id="education" class="section-padding bg-light">
+        <div class="container" data-aos="fade-left">
+            <h2 class="theme-text">Education</h2>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-book-fill theme-text me-2"></i><strong>Diploma in Computer Science Engineering</strong> – Completed in 2023</li>
+                <li><i class="bi bi-book-fill theme-text me-2"></i><strong>6 Month Apprenticeship</strong> – KSS, Chitrakoot</li>
+                <li><i class="bi bi-book-fill theme-text me-2"></i><strong>Currently Pursuing:</strong> B.Tech in Computer Science – SIIT, Gorakhpur</li>
+            </ul>
+        </div>
+    </section>
+    <hr>
+
+    <section id="contact" class="section-padding">
+        <div class="container" data-aos="zoom-in">
+            <h2 class="theme-text text-center mb-5">Contact Me</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <form action="https://formspree.io/f/mblkzavz" method="POST">
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="message" rows="5" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn theme-bg w-100">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
+                    <h5 class="mb-3"><i class="bi bi-geo-alt-fill me-2 theme-text"></i> Based in India</h5>
+                    <p class="mb-3"><i class="bi bi-envelope-fill me-2 theme-text"></i> coder7985@gmail.com</p>
+                    <p class="mb-3"><i class="bi bi-whatsapp me-2 theme-text"></i> +91 7985057508</p>
+                    <p class="mb-3"><i class="bi bi-briefcase-fill me-2 theme-text"></i> Open to freelance & full-time opportunities</p>
+                    <p class="mb-3"><i class="bi bi-check-circle-fill me-2 theme-text"></i> Available for remote or onsite projects</p>
+                    <div class="social-icons mt-3">
+                        <a href="mailto:coder7985@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/shivpoojan" target="_blank"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/in/shivpoojan" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://wa.me/917985057508" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <p class="mb-0">&copy; 2025 Shivpoojan Prajapati. All rights reserved.</p>
+    </footer>
+
+    <div class="mobile-nav-overlay"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        const navbarCollapse = document.getElementById('navbarNav');
+        const navOverlay = document.querySelector('.mobile-nav-overlay');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+
+        // Function to close the menu
+        function closeNavbar() {
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                }
+            }
+        }
+
+        // --- Event Listeners ---
+
+        // 1. On hamburger icon click, toggle the overlay
+        navbarToggler.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+                navOverlay.classList.remove('show');
+            } else {
+                navOverlay.classList.add('show');
+            }
+        });
+
+        // 2. On overlay click, close the menu and hide the overlay
+        navOverlay.addEventListener('click', () => {
+            closeNavbar();
+        });
+
+        // 3. On menu link click, close the menu
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeNavbar();
+            });
+        });
+    </script>
+</body>
+
+</html>
